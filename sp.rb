@@ -5,53 +5,45 @@
 class Sp < Formula
   desc "A Spotify CLI"
   homepage "https://github.com/matthew-collett/sp"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_darwin_amd64.tar.gz"
-      sha256 "8fd1eda2cd0fdd804733eb8c98a958c3af52443c0c346baf9f92fa05f3ab86b1"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_darwin_amd64.tar.gz"
+      sha256 "892bec6488f4db31f6c50154106a70242cb77ea2ed90493345874c3b46dae03e"
 
       define_method(:install) do
         bin.install "sp"
-        bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
-        zsh_completion.install Utils.safe_popen_read(bin/"sp", "completion", "zsh") => "_sp"
-        fish_completion.install Utils.safe_popen_read(bin/"sp", "completion", "fish") => "sp.fish"
+        generate_completions_from_executable(bin/"sp", "completion")
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_darwin_arm64.tar.gz"
-      sha256 "335a7b1e1bcda248d8b68f474ce7728a3b5f61cba1bb543eef23f845c41bb31e"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_darwin_arm64.tar.gz"
+      sha256 "ececd1d7362b1e21c82628c84c0420268f4488fbb46c5455bec46ff735df15d4"
 
       define_method(:install) do
         bin.install "sp"
-        bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
-        zsh_completion.install Utils.safe_popen_read(bin/"sp", "completion", "zsh") => "_sp"
-        fish_completion.install Utils.safe_popen_read(bin/"sp", "completion", "fish") => "sp.fish"
+        generate_completions_from_executable(bin/"sp", "completion")
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_linux_amd64.tar.gz"
-      sha256 "6805d0f3a3aadb947cf6fc0b591bea82ec82ceaf8a271567a3fe0a36e9cfeb35"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_linux_amd64.tar.gz"
+      sha256 "fa3f6ce86447eb4426d95b17aff19e58bfb58d0632c3202f5835da5f05dc07e3"
       define_method(:install) do
         bin.install "sp"
-        bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
-        zsh_completion.install Utils.safe_popen_read(bin/"sp", "completion", "zsh") => "_sp"
-        fish_completion.install Utils.safe_popen_read(bin/"sp", "completion", "fish") => "sp.fish"
+        generate_completions_from_executable(bin/"sp", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_linux_arm64.tar.gz"
-      sha256 "cec58c4f2d0dba4523e1179c99878e7d477814ec8b51fda02fa39dc342bb6943"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_linux_arm64.tar.gz"
+      sha256 "a963f49a2f5368ed4cf8a14b5d992fb8bacb4f111937a800806858cc49280f22"
       define_method(:install) do
         bin.install "sp"
-        bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
-        zsh_completion.install Utils.safe_popen_read(bin/"sp", "completion", "zsh") => "_sp"
-        fish_completion.install Utils.safe_popen_read(bin/"sp", "completion", "fish") => "sp.fish"
+        generate_completions_from_executable(bin/"sp", "completion")
       end
     end
   end
