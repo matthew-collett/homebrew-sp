@@ -5,13 +5,13 @@
 class Sp < Formula
   desc "A Spotify CLI"
   homepage "https://github.com/matthew-collett/sp"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_darwin_amd64.tar.gz"
-      sha256 "892bec6488f4db31f6c50154106a70242cb77ea2ed90493345874c3b46dae03e"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.5.0/sp_darwin_amd64.tar.gz"
+      sha256 "ad1e58561fcb0399e4784fe30cab426304ac8b807e958856bd22980f75a503c5"
 
       define_method(:install) do
         bin.install "sp"
@@ -19,8 +19,8 @@ class Sp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_darwin_arm64.tar.gz"
-      sha256 "ececd1d7362b1e21c82628c84c0420268f4488fbb46c5455bec46ff735df15d4"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.5.0/sp_darwin_arm64.tar.gz"
+      sha256 "e249afd00b12ff940cad3d260fc0e81c8d548ee94fbf946a239826dce0b15a44"
 
       define_method(:install) do
         bin.install "sp"
@@ -31,16 +31,16 @@ class Sp < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_linux_amd64.tar.gz"
-      sha256 "fa3f6ce86447eb4426d95b17aff19e58bfb58d0632c3202f5835da5f05dc07e3"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.5.0/sp_linux_amd64.tar.gz"
+      sha256 "b8683f21fa6f68094d93b03b337502ba4deefbf3eed604788c4b155fc9ae8575"
       define_method(:install) do
         bin.install "sp"
         generate_completions_from_executable(bin/"sp", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.4.0/sp_linux_arm64.tar.gz"
-      sha256 "a963f49a2f5368ed4cf8a14b5d992fb8bacb4f111937a800806858cc49280f22"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.5.0/sp_linux_arm64.tar.gz"
+      sha256 "e2673e225c58ba14906c95e4c05e21dfdf2e5169688eff030fd1e4917e8a9ef2"
       define_method(:install) do
         bin.install "sp"
         generate_completions_from_executable(bin/"sp", "completion")
