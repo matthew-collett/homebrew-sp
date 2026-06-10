@@ -5,13 +5,13 @@
 class Sp < Formula
   desc "A Spotify CLI"
   homepage "https://github.com/matthew-collett/sp"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.2.0/sp_darwin_amd64.tar.gz"
-      sha256 "e9cbd4675d1f991c9f0d9e1ecd0a11dd3cb030cbfc10d5b17ffb779e323b9ec1"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_darwin_amd64.tar.gz"
+      sha256 "8fd1eda2cd0fdd804733eb8c98a958c3af52443c0c346baf9f92fa05f3ab86b1"
 
       define_method(:install) do
         bin.install "sp"
@@ -21,8 +21,8 @@ class Sp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.2.0/sp_darwin_arm64.tar.gz"
-      sha256 "d86fcf6214616850a5c1ea5cbe147d2e1ee0460b96ae2c43f4c0198a02c7c41f"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_darwin_arm64.tar.gz"
+      sha256 "335a7b1e1bcda248d8b68f474ce7728a3b5f61cba1bb543eef23f845c41bb31e"
 
       define_method(:install) do
         bin.install "sp"
@@ -35,8 +35,8 @@ class Sp < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.2.0/sp_linux_amd64.tar.gz"
-      sha256 "44ff13afa13287d6c312719d87a4f7346b7967f76b3364d9ccf4fac7d3bdaa28"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_linux_amd64.tar.gz"
+      sha256 "6805d0f3a3aadb947cf6fc0b591bea82ec82ceaf8a271567a3fe0a36e9cfeb35"
       define_method(:install) do
         bin.install "sp"
         bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
@@ -45,8 +45,8 @@ class Sp < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.2.0/sp_linux_arm64.tar.gz"
-      sha256 "867accd6f52dfab1dc47a369a4f145492b6a04484442f09693babdf73e7d8ced"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.3.0/sp_linux_arm64.tar.gz"
+      sha256 "cec58c4f2d0dba4523e1179c99878e7d477814ec8b51fda02fa39dc342bb6943"
       define_method(:install) do
         bin.install "sp"
         bash_completion.install Utils.safe_popen_read(bin/"sp", "completion", "bash") => "sp"
