@@ -5,35 +5,51 @@
 class Sp < Formula
   desc "A fast, minimal Spotify CLI and MCP server for your terminal"
   homepage "https://github.com/matthew-collett/sp"
-  version "0.8.0"
+  version "0.8.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.8.0/sp_darwin_amd64.tar.gz"
-      sha256 "fcba6d790f9c7408bc2587b744599ab271b62712e9e43b6c84d26bb162e2b836"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.8.1/sp_darwin_amd64.tar.gz"
+      sha256 "ec6b49a018dbbd016ee7548d0e88fbd52bedb56893b19d0771d85969f83fa273"
+
+      define_method(:install) do
+        bin.install "sp"
+        bin.install "sp-mcp"
+        generate_completions_from_executable(bin/"sp", "completion", shells: [:bash, :zsh, :fish])
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.8.0/sp_darwin_arm64.tar.gz"
-      sha256 "b6089dbac1559e213cc4cb7ba8360a68c0fa5b0181510c0c828b84eb268e5401"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.8.1/sp_darwin_arm64.tar.gz"
+      sha256 "a4ae9e854c08297a988758f4ab52188b44b42ec893b03f90a17eaf707d30cedd"
+
+      define_method(:install) do
+        bin.install "sp"
+        bin.install "sp-mcp"
+        generate_completions_from_executable(bin/"sp", "completion", shells: [:bash, :zsh, :fish])
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.8.0/sp_linux_amd64.tar.gz"
-      sha256 "93af793ac3d178c3d28333cf1d9b550620da96985d5bbb2cb5ac8557f3ff7150"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.8.1/sp_linux_amd64.tar.gz"
+      sha256 "0356ec82f21b84201a537add42dfa1d1df0d77b2bddab0bdc4232cbc099e7f03"
+      define_method(:install) do
+        bin.install "sp"
+        bin.install "sp-mcp"
+        generate_completions_from_executable(bin/"sp", "completion", shells: [:bash, :zsh, :fish])
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v0.8.0/sp_linux_arm64.tar.gz"
-      sha256 "9ef1dad252b11b55ad99212c06ae090e49cbe427477b30b5c0e1225bee58355f"
+      url "https://github.com/matthew-collett/sp/releases/download/v0.8.1/sp_linux_arm64.tar.gz"
+      sha256 "9facff9bbcd3b7a324be7a33b8df83f720dd7b57966803e07fd57a63d41f4873"
+      define_method(:install) do
+        bin.install "sp"
+        bin.install "sp-mcp"
+        generate_completions_from_executable(bin/"sp", "completion", shells: [:bash, :zsh, :fish])
+      end
     end
-  end
-
-  def install
-    bin.install "sp"
-    bin.install "sp-mcp"
-    generate_completions_from_executable(bin/"sp", "completion", shells: [:bash, :zsh, :fish])
   end
 
   test do
