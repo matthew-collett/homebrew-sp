@@ -5,13 +5,13 @@
 class Sp < Formula
   desc "A fast, minimal Spotify CLI and MCP server for your terminal"
   homepage "https://github.com/matthew-collett/sp"
-  version "1.3.0"
+  version "1.3.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/matthew-collett/sp/releases/download/v1.3.0/sp_darwin_amd64.tar.gz"
-      sha256 "8537670080dffe4cb1bc3a86d602c392d4d78e9ad47762846969e8e10806a9c8"
+      url "https://github.com/matthew-collett/sp/releases/download/v1.3.1/sp_darwin_amd64.tar.gz"
+      sha256 "2d6b9ff6c7141b8fa3fa5883337371ce7aedac55c89c342482dbdb6f706adc7e"
 
       define_method(:install) do
         bin.install "sp"
@@ -20,8 +20,8 @@ class Sp < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/matthew-collett/sp/releases/download/v1.3.0/sp_darwin_arm64.tar.gz"
-      sha256 "06e64c278dc82e33cbe9b275db2e0aa2078a83bae9b41deb1feb7ab7a00c497a"
+      url "https://github.com/matthew-collett/sp/releases/download/v1.3.1/sp_darwin_arm64.tar.gz"
+      sha256 "fddb998bf1245494f7df7964d41923a775105fbe1060d4fb17e5dc92f366d3e0"
 
       define_method(:install) do
         bin.install "sp"
@@ -33,8 +33,8 @@ class Sp < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v1.3.0/sp_linux_amd64.tar.gz"
-      sha256 "45248d8af37e1b5fd518e04ac3f4bb4b85ababbcf4dfbb75d6de5ca6be65264a"
+      url "https://github.com/matthew-collett/sp/releases/download/v1.3.1/sp_linux_amd64.tar.gz"
+      sha256 "a9204427dd4d683cd992789cefa200145bd5b8cbfc2f9ad12bda28c60d459572"
       define_method(:install) do
         bin.install "sp"
         bin.install "sp-mcp"
@@ -42,8 +42,8 @@ class Sp < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/matthew-collett/sp/releases/download/v1.3.0/sp_linux_arm64.tar.gz"
-      sha256 "7e2c40dcb6a261d6996260a7f14814a2238f3f3bab968e9cb5752918230e3815"
+      url "https://github.com/matthew-collett/sp/releases/download/v1.3.1/sp_linux_arm64.tar.gz"
+      sha256 "9276efd01c873c7cd99f104e87242ddc6fc5abdb8b64372139f33ac2d7675270"
       define_method(:install) do
         bin.install "sp"
         bin.install "sp-mcp"
